@@ -2,6 +2,11 @@ bug_task:
   freebsd_instance:
     image_family: freebsd-14-0
 
+  prepare_script:
+    - freebsd-version -ku
+    - PAGER=/bin/cat freebsd-update --not-running-from-cron fetch install
+    - freebsd-version -ku
+
   bug_script:
     - service zfs onestart
 
