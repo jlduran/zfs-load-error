@@ -1,0 +1,10 @@
+bug_task:
+  freebsd_instance:
+    image_family: freebsd-14-0
+
+  bug_script:
+    - service zfs onestart
+
+  always:
+    dmesg_a_script:
+      - dmesg -a
